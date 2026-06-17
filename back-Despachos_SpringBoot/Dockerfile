@@ -2,9 +2,9 @@
 FROM maven:3.8.5-openjdk-17 AS build
 WORKDIR /app
 
-# AQUÍ EL CAMBIO: Le indicamos la subcarpeta exacta (Reemplaza el nombre si es distinto)
-COPY Springboot-API-REST/pom.xml .
-COPY Springboot-API-REST/src ./src
+# Apuntamos exactamente a la carpeta que me mostraste en la imagen
+COPY Springboot-API-REST-DESPACHO/pom.xml .
+COPY Springboot-API-REST-DESPACHO/src ./src
 
 RUN mvn clean package -DskipTests
 
