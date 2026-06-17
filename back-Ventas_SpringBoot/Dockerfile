@@ -1,10 +1,13 @@
 FROM maven:3.8.5-openjdk-17 AS build
 WORKDIR /app
-COPY pom.xml .
-COPY src ./src
+
+# Aquí está la magia: le indicamos que entre a la subcarpeta
+COPY Springboot-API-REST/pom.xml .
+COPY Springboot-API-REST/src ./src
+
 RUN mvn clean package -DskipTests
 
-# Cambiamos a la imagen oficial de AWS (Corretto) basada en Alpine
+# Usamos la imagen oficial de AWS (Corretto) basada en Alpine
 FROM amazoncorretto:17-alpine
 WORKDIR /app
 
